@@ -1,0 +1,52 @@
+// Class representing a Person
+class Person {
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Class representing a Car
+class Car {
+    private String model;
+    private Person owner; // Association with Person
+
+    public Car(String model, Person owner) {
+        this.model = model;
+        this.owner = owner;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Person
+        Person person = new Person("Amit");
+
+        // Creating a Car and associating it with the Person
+        Car car = new Car("Toyota", person);
+
+        // Display the car's owner
+        System.out.println("Car model: " + car.getModel());
+        System.out.println("Owner: " + car.getOwner().getName());
+    }
+}
+
+
+
+***************
+>Association is a relationship where one object can be associated with another object.
+>In this example, the Car class has an association with the Person class via the owner attribute.
+>This association allows us to link a car to its owner and access the owner's information through the car object.
