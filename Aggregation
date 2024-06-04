@@ -1,0 +1,57 @@
+// Class representing Food
+class Food {
+    private String name;
+
+    public Food(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Class representing a Meal
+class Meal {
+    private String name;
+    private List<Food> foods; // Aggregation relationship
+
+    public Meal(String name) {
+        this.name = name;
+        this.foods = new ArrayList<>();
+    }
+
+    public void addFood(Food food) {
+        foods.add(food);
+    }
+
+    public List<Food> getFoods() {
+        return foods;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating Food items
+        Food rice = new Food("Rice");
+        Food chicken = new Food("Chicken");
+        Food salad = new Food("Salad");
+
+        // Creating a Meal and adding food items to it
+        Meal lunch = new Meal("Lunch");
+        lunch.addFood(rice);
+        lunch.addFood(chicken);
+        lunch.addFood(salad);
+
+        // Display the meal's food items
+        System.out.println("Meal: " + lunch.getName());
+        System.out.println("Foods in the meal:");
+        for (Food food : lunch.getFoods()) {
+            System.out.println(food.getName());
+        }
+    }
+}
