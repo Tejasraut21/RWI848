@@ -1,0 +1,25 @@
+class MyRunnable implements Runnable {
+    private String threadName;
+
+    // Constructor to initialize threadName
+    MyRunnable(String name) {
+        this.threadName = name;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(threadName + ": " + i);
+            try {
+                Thread.sleep(500); // Sleep for 0.5 seconds
+            } catch (InterruptedException e) {
+                System.out.println(threadName + " interrupted.");
+            }
+        }
+        System.out.println(threadName + " exiting.");
+    }
+}
+
+public class MultiThreadingExample {
+    public static void main(String[] args) {
+        // Create Runnable objects using constructors
+        Runnable runnable1 = new MyRunnable("Threa
